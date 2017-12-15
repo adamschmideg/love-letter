@@ -29,7 +29,9 @@ class AgentA3C(Agent):
 
         self._model = ActorCritic(
             state.shape[0], self.env.action_space).type(dtype)
-        self._model.load_state_dict(torch.load(model_path))
+        if torch.cuda.is_available():
+            self._model.load_state_dict(torch.load(model_path))
+
 
     def _move(self, game):
         '''Return move which ends in score hole'''
@@ -44,7 +46,10 @@ class AgentA3C(Agent):
         _, logit, (hx, cx) = self._model(
             (Variable(state.unsqueeze(0), volatile=True), (hx, cx)))
         prob = F.softmax(logit)
-        action_idx = prob.max(1)[1].data.cpu().numpy()[0, 0]
+        if torch.cuda.is_available():
+            action_idx = prob.max(1)[1].data.cpu().numpy()[0, 0]
+        else:
+            action_idx = prob.max(1)[1].data.cpu().numpy()[0]
 
         player_action = self.env.action_from_index(action_idx, game)
         if player_action is None:

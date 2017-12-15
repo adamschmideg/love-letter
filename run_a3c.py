@@ -9,7 +9,7 @@ mp = _mp.get_context('spawn')
 
 from loveletter.env import LoveLetterEnv
 from loveletter.arena import Arena
-from loveletter.agents.random import AgentRandom
+from loveletter.agents.random_agent import AgentRandom
 from loveletter.agents.agent import Agent
 
 from loveletter.trainers.a3c_model import ActorCritic

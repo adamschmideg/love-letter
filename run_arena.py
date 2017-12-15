@@ -5,7 +5,7 @@ import os
 
 import torch
 
-from loveletter.agents.random import AgentRandom
+from loveletter.agents.random_agent import AgentRandom
 from loveletter.arena import Arena
 from loveletter.agents.a3c import AgentA3C
 

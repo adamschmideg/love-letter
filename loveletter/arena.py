@@ -110,7 +110,7 @@ class Arena():
     def _fix_for_row(name, match_tuple, game_count):
         """Reduce a row to the player 2 and note the correct win percentage for player 1"""
         if match_tuple[0] == name and match_tuple[1] != name:
-            win_percent = (game_count - match_tuple[2]) / game_count
+            win_percent = (game_count - match_tuple[2]) / float(game_count)
             return (match_tuple[1], win_percent)
         # if match_tuple[0] != name and match_tuple[1] == name:
-        return (match_tuple[0], match_tuple[2] / game_count)
+        return (match_tuple[0], match_tuple[2] / float(game_count))
