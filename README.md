@@ -30,6 +30,8 @@ Run with `python play.py`.
 
 ## Installation
 
+Prerequisite: Install (PyTorch)[http://pytorch.org/]
+
 Requirements are contained in `requirements.txt`. Install with `pip install -r requirements.txt`.
 
 ## Tests
