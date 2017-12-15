@@ -1,7 +1,7 @@
 
 import unittest
 from loveletter.arena import Arena
-from loveletter.agents.random import AgentRandom
+from loveletter.agents.random_agent import AgentRandom
 
 
 class TestArenaNames(unittest.TestCase):

@@ -16,7 +16,7 @@ from tensorboard_logger import configure, log_value
 
 
 from loveletter.env import LoveLetterEnv
-from loveletter.agents.random import AgentRandom
+from loveletter.agents.random_agent import AgentRandom
 from loveletter.agents.agent import Agent
 from loveletter.agents.a3c import AgentA3C
 from loveletter.arena import Arena

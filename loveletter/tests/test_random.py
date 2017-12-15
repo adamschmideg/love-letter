@@ -3,7 +3,7 @@
 import unittest
 
 from loveletter.agents.agent import Agent
-from loveletter.agents.random import AgentRandom
+from loveletter.agents.random_agent import AgentRandom
 from loveletter.card import Card
 from loveletter.tests.test_games import TestGames
 from loveletter.player import PlayerAction

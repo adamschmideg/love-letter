@@ -8,7 +8,7 @@ from torch.autograd import Variable
 
 
 from loveletter.env import LoveLetterEnv
-from loveletter.agents.random import AgentRandom
+from loveletter.agents.random_agent import AgentRandom
 from loveletter.agents.agent import Agent
 from loveletter.trainers.a3c_model import ActorCritic
 

@@ -7,7 +7,7 @@ from gym.utils import seeding
 from .game import Game
 from .card import Card
 from .player import PlayerAction, PlayerTools
-from .agents.random import AgentRandom
+from .agents.random_agent import AgentRandom
 
 
 class LoveLetterEnv(gym.Env):
