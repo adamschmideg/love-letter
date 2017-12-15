@@ -5,6 +5,7 @@ import argparse
 
 import numpy as np
 
+from loveletter.agents.random_agent import AgentRandom
 from loveletter.game import Game
 from loveletter.player import PlayerAction, PlayerActionTools
 from loveletter.card import Card
@@ -81,5 +82,36 @@ def play(seed, previous_actions):
     display(game, actions)
     print("Game Over : Player {} Wins!".format(game.winner()))
 
+def play_with_agents(seed, *agents):
+    all_players = [None, AgentRandom()]
+    game = Game.new(len(all_players), seed)
+    actions = []
+    while game.active():
+        if not game.is_current_player_playing():
+            game = game.skip_eliminated_player()
+            continue
+
+        display(game, actions)
+
+        current_player = all_players[game.player_turn()]
+
+        if current_player:
+            action = current_player.move(game)
+            actions.append(action)
+            game, _ = game.move(action)
+        else:
+            try:
+                print("  What card to play?")
+                action = get_action()
+                actions.append(action)
+                game, _ = game.move(action)
+            except ValueError:
+                print("Invalid move - Exit with Ctrl-C")
+
+    display(game, actions)
+    print("Game Over : Player {} Wins!".format(game.winner()))
+
+
 if __name__ == "__main__":
-    play(ARGS.seed, ARGS.replay)
+    #play(ARGS.seed, ARGS.replay)
+    play_with_agents(ARGS.seed)
